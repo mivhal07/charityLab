@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head><link rel="stylesheet" href="/resources/css/style.css"></head>
 <body>
 <footer>
     <div class="contact">
@@ -25,12 +24,10 @@
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img src="resources/images/icon-facebook.svg"/></a> <a href="#"
-                                                                                            class="btn btn--small"><img
-                src="resources/images/icon-instagram.svg"/></a>
+            <a href="#" class="btn btn--small"><img src="/resources/images/icon-facebook.svg"/></a>
+            <a href="#" class="btn btn--small"><img src="/resources/images/icon-instagram.svg"/></a>
         </div>
     </div>
 </footer>
-<script src="/resources/js/app.js"></script>
 </body>
 </html>

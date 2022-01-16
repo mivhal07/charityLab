@@ -33,7 +33,8 @@ public class CategoryDao {
 
     public List<Category> getAll() {
         return entityManager
-                .createQuery("select c.name from Category c")
+                .createQuery("select c from Category c")
                 .getResultList();
+
     }
 }

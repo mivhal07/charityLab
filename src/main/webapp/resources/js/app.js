@@ -1,3 +1,5 @@
+console.log("hi to ja")
+
 document.addEventListener("DOMContentLoaded", function() {
 
   /**
@@ -163,7 +165,25 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      // TODO: get data from inputs and show them in summary
+      const chosenCategory = document.getElementById("categories");
+      console.log(chosenCategory);
+      const bags = document.getElementById("bags");
+      console.log(bags);
+      const institution = document.getElementsByName("institution");
+      console.log(institution);
+      const address = document.getElementsByName("address");
+      console.log(address);
+      const city = document.getElementsByName("city");
+      console.log(city);
+      const postcode = document.getElementsByName("city")
+      console.log(postcode);
+      const time = document.getElementsByName("time");
+      console.log(time);
+      const data = document.getElementsByName("data");
+      console.log(data);
+      const more_info = document.getElementsByName("more_info");
+      console.log(more_info);
+      console.log("hi to ja")
     }
 
   }
@@ -172,3 +192,4 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 });
+console.log("hi to ja")

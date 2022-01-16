@@ -31,22 +31,15 @@ public class DonationController {
         model.addAttribute("donation", new Donation());
         model.addAttribute("institutions", institutionDao.getAll());
         model.addAttribute("categories", categoryDao.getAll());
-        return "donation/add";
+        return "donation/add2";
     }
 
     @PostMapping("/add")
     private String addDonationResult(@Valid Donation donation, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            BindingResult result1 = result;
-            System.out.println(result);
-            System.out.println("");
-            System.out.println(result1);
-            model.addAttribute("categories", categoryDao.getAll());
-            return "donation/add";
+            return "donation/error";
         }
-        model.addAttribute("categories", categoryDao.getAll());
         donationDao.save(donation);
-
         return "donation/success";
     }
 

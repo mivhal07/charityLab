@@ -1,10 +1,9 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta content="text/css" type="text/html">
-    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
@@ -42,12 +41,21 @@
                 <h3>Zaznacz co chcesz oddać:</h3>
 
                 <c:forEach items="${categories}" var="category">
-                    <form:checkbox path="${category.name}" value="category"/>
+                    <div class="form-group form-group--checkbox">
+                        <label>
+                            <input
+                                    id="categories"
+                                    type="checkbox"
+                                    name="categories"
+                                    value="${category.id}"
+                            />
+                            <span class="checkbox"></span>
+                            <span class="description"
+                            >${category.name}</span
+                            >
+                        </label>
+                    </div>
                 </c:forEach>
-                <div class="form-group form-group--checkbox">
-                    <form:checkboxes path="categories"
-                                     items="${categories}"/>
-                </div>
 
 
                 <div class="form-group form-group--buttons">
@@ -62,7 +70,8 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity" type="number" name="bags" step="1" min="1"/>
+                        <form:input path="quantity" type="number" id="bags" name="bags" step="1" min="1"/>
+                        <form:errors path="quantity"/>
                     </label>
                 </div>
 
@@ -78,7 +87,8 @@
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
                 <div class="form-group form-group--checkbox">
-                    <form:select path="institution" items="${institutions}" itemValue="id" itemLabel="name"/>
+                    <form:select path="institution" items="${institutions}" name="institution" itemValue="id" itemLabel="name"/>
+                    <form:errors path="institution"/>
                 </div>
 
                 <div class="form-group form-group--buttons">
@@ -95,18 +105,23 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <form:label path="street"> Ulica <form:input path="street" type="text" name="address"/>
-                            </form:label>
-                        </div>
-
-                        <div class="form-group form-group--inline">
-                            <form:label path="city"> Miasto <form:input path="city" type="text" name="city"/>
-                            </form:label>
+                            <label>
+                                Ulica <form:input path="street" type="text" name="address"/>
+                                <form:errors path="street"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="postcode"/>
+                                Miasto <form:input path="city" type="text" name="city"/>
+                                <form:errors path="city"/>
+                            </label>
+                        </div>
+
+                        <div class="form-group form-group--inline">
+                            <label>
+                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode"/>
+                                <form:errors path="zipCode"/>
                             </label>
                         </div>
 
@@ -120,17 +135,25 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="data"/> </label>
+                            <label>
+                                Godzina <form:input path="pickUpTime" type="time" name="time"/>
+                                <form:errors path="pickUpTime"/>
+                            </label>
                         </div>
 
+
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="time"/> </label>
+                            <label>
+                                Data <form:input path="pickUpDate" type="date" name="data"/>
+                                <form:errors path="pickUpDate"/>
+                            </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea path="pickUpComment" name="more_info" rows="5"></form:textarea>
+                                <form:errors path="pickUpComment"/>
                             </label>
                         </div>
                     </div>
@@ -152,7 +175,7 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                >ilość worków: </span
                                 >
                             </li>
 
@@ -198,6 +221,6 @@
 
 <jsp:include page="footer.jsp"/>
 
-<script src="/resources/js/app.js"></script>
+<script src="/resources/js/app.js"/>
 </body>
 </html>

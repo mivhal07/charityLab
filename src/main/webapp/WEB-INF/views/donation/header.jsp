@@ -7,9 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <link rel="stylesheet" href="/resources/css/style.css">
-</head>
 <body>
 <header class="header--main-page">
     <nav class="container container--70">
@@ -37,6 +34,5 @@
         </div>
     </div>
 </header>
-<script src="/resources/js/app.js"></script>
 </body>
 </html>
