@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,10 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="<c:url value="resources/css/style.css"/>"/>
+<%--    <script type="text/javascript" src="/resources/charity/js/app.js"/>--%>
+    <script src="/resources/charity/js/app.js"></script>
+    <link rel="stylesheet" href="<c:url value="/resources/charity/css/style.css"/>"/>
 </head>
 <body>
-<jsp:include page="donation/header.jsp"/>
+<jsp:include page="headerWithSlogan.jsp"/>
 
 <section class="stats">
     <div class="container container--85">
@@ -59,7 +62,10 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <sec:authorize access="isAnonymous()">
+        <a href="/register" class="btn btn--large">Załóż konto</a>
+        <a href="/login" class="btn btn--large">Zaloguj się</a>
+    </sec:authorize>
 </section>
 
 <section class="about-us">
@@ -67,9 +73,11 @@
         <h2>O nas</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas vitae animi rem pariatur incidunt libero
             optio esse quisquam illo omnis.</p>
-        <img src="<c:url value="resources/images/signature.svg"/>" class="about-us--text-signature" alt="Signature"/>
+        <img src="<c:url value="/resources/charity/images/signature.svg"/>" class="about-us--text-signature"
+             alt="Signature"/>
     </div>
-    <div class="about-us--image"><img src="<c:url value="resources/images/about-us.jpg"/>" alt="People in circle"/>
+    <div class="about-us--image"><img src="<c:url value="/resources/charity/images/about-us.jpg"/>"
+                                      alt="People in circle"/>
     </div>
 </section>
 
@@ -87,21 +95,20 @@
                 <c:if test="${status.count%2!=0}">
                     <li>
                 </c:if>
-                    <div class="col">
-                        <div class="title">Fundacja "${institution.name}"</div>
-                        <div class="subtitle">Cel i misja: ${institution.description}
-                        </div>
+                <div class="col">
+                    <div class="title">Fundacja "${institution.name}"</div>
+                    <div class="subtitle">Cel i misja: ${institution.description}
                     </div>
-                    <c:if test="${status.count%2==0}">
-                        </li>
-                    </c:if>
+                </div>
+                <c:if test="${status.count%2==0}">
+                    </li>
+                </c:if>
             </c:forEach>
         </ul>
     </div>
 
 </section>
 
-<jsp:include page="donation/footer.jsp"/>
-<script src="<c:url value="/resources/js/app.js"/>"/>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

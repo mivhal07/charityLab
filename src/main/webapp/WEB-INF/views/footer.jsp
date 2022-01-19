@@ -6,8 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<body>
 <footer>
     <div class="contact">
         <h2>Skontaktuj się z nami</h2>
@@ -24,10 +22,10 @@
     <div class="bottom-line">
         <span class="bottom-line--copy">Copyright &copy; 2018</span>
         <div class="bottom-line--icons">
-            <a href="#" class="btn btn--small"><img src="/resources/images/icon-facebook.svg"/></a>
-            <a href="#" class="btn btn--small"><img src="/resources/images/icon-instagram.svg"/></a>
+            <a href="#" class="btn btn--small"><img src="/resources/charity/images/icon-facebook.svg"/></a>
+            <a href="#" class="btn btn--small"><img src="/resources/charity/images/icon-instagram.svg"/></a>
         </div>
     </div>
 </footer>
-</body>
-</html>
+
+

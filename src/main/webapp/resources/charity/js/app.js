@@ -1,4 +1,5 @@
-console.log("hi to ja")
+console.log("hi to ja");
+alert("blabla");
 
 document.addEventListener("DOMContentLoaded", function() {
 
