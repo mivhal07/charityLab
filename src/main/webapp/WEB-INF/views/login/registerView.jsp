@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/resources/charity/css/style.css" />
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/headers/headerNormal.jsp"/>
 
 <section class="login-page">
   <h2>Załóż konto</h2>
@@ -32,5 +33,7 @@
   </form:form>
 </section>
 
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
+<script src="/resources/charity/js/app.js"/>
 </body>
 </html>

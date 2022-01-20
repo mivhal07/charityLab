@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/resources/charity/css/style.css"/>
 </head>
 <body>
-<jsp:include page="../headerWithoutSlogan.jsp"/>
+<jsp:include page="/WEB-INF/views/headers/headerNormal.jsp"/>
 
 <section class="login-page">
     <h2>Zaloguj się</h2>
@@ -29,7 +29,7 @@
     </form>
 </section>
 
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 <script src="/resources/charity/js/app.js"/>
 </body>
 </html>

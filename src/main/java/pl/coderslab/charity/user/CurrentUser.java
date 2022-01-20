@@ -18,4 +18,9 @@ public class CurrentUser extends User {
     public pl.coderslab.charity.entity.User getUser() {
         return user;
     }
+
+    public String getUsersName(){
+        return user.getName();
+    }
+
 }

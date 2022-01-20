@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="/resources/charity/css/style.css" />
 </head>
 <body>
-<div class="slogan container container--90">
-    <h2>
-        Dziękujemy za rejestrację.
-    </h2>
-</div>
+
+<jsp:include page="/WEB-INF/views/headers/confirmHeaders/registerConfirm.jsp"/>
+
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 <li><a href="/" class="btn btn--without-border">Strona główna</a></li>
 <script src="/resources/charity/js/app.js"></script>
 </body>

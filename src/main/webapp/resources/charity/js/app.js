@@ -1,6 +1,3 @@
-console.log("hi to ja");
-alert("blabla");
-
 document.addEventListener("DOMContentLoaded", function() {
 
   /**
@@ -166,25 +163,24 @@ document.addEventListener("DOMContentLoaded", function() {
       this.$stepInstructions[0].parentElement.parentElement.hidden = this.currentStep >= 5;
       this.$step.parentElement.hidden = this.currentStep >= 5;
 
-      const chosenCategory = document.getElementById("categories");
+      const chosenCategory = document.getElementById("categories").valueOf();
       console.log(chosenCategory);
-      const bags = document.getElementById("bags");
+      const bags = document.getElementById("bags").valueOf();
       console.log(bags);
-      const institution = document.getElementsByName("institution");
+      const institution = document.getElementById("institution").valueOf();
       console.log(institution);
-      const address = document.getElementsByName("address");
+      const address = document.getElementById("address").valueOf();
       console.log(address);
-      const city = document.getElementsByName("city");
+      const city = document.getElementById("city").valueOf();
       console.log(city);
-      const postcode = document.getElementsByName("city")
+      const postcode = document.getElementById("zipCode").valueOf();
       console.log(postcode);
-      const time = document.getElementsByName("time");
+      const time = document.getElementById("time").valueOf();
       console.log(time);
-      const data = document.getElementsByName("data");
+      const data = document.getElementById("data").valueOf();
       console.log(data);
-      const more_info = document.getElementsByName("more_info");
+      const more_info = document.getElementById("more_info").valueOf();
       console.log(more_info);
-      console.log("hi to ja")
     }
 
   }
@@ -193,4 +189,3 @@ document.addEventListener("DOMContentLoaded", function() {
     new FormSteps(form);
   }
 });
-console.log("hi to ja")

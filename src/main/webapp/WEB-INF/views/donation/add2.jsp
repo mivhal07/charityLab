@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
+    <script type="text/javascript" src="/resources/charity/js/app.js"></script>
     <link rel="stylesheet" href="/resources/charity/css/style.css"/>
 </head>
 <body>
-<jsp:include page="/headerWithSlogan.jsp"/>
+<jsp:include page="/WEB-INF/views/headers/headerToForm.jsp"/>
 
 <section class="form--steps">
     <div class="form--steps-instructions">
@@ -35,7 +36,7 @@
     <div class="form--steps-container">
         <div class="form--steps-counter">Krok <span>1</span>/4</div>
 
-        <form:form action="form-confirmation.html" method="post" modelAttribute="donation">
+        <form:form method="post" modelAttribute="donation">
             <!-- STEP 1: class .active is switching steps -->
             <div data-step="1" class="active">
                 <h3>Zaznacz co chcesz oddać:</h3>
@@ -87,7 +88,7 @@
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
 
                 <div class="form-group form-group--checkbox">
-                    <form:select path="institution" items="${institutions}" name="institution" itemValue="id" itemLabel="name"/>
+                    <form:select id="institution" path="institution.id" items="${institutions}" name="institution" itemValue="id" itemLabel="name"/>
                     <form:errors path="institution"/>
                 </div>
 
@@ -106,21 +107,21 @@
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label>
-                                Ulica <form:input path="street" type="text" name="address"/>
+                                Ulica <form:input path="street" id="address" type="text" name="address"/>
                                 <form:errors path="street"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Miasto <form:input path="city" type="text" name="city"/>
+                                Miasto <form:input path="city" id="city" type="text" name="city"/>
                                 <form:errors path="city"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="postcode"/>
+                                Kod pocztowy <form:input path="zipCode" id="zipCode" type="text" name="postcode"/>
                                 <form:errors path="zipCode"/>
                             </label>
                         </div>
@@ -136,7 +137,7 @@
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
                             <label>
-                                Godzina <form:input path="pickUpTime" type="time" name="time"/>
+                                Godzina <form:input path="pickUpTime" id="time" type="time" name="time"/>
                                 <form:errors path="pickUpTime"/>
                             </label>
                         </div>
@@ -144,7 +145,7 @@
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Data <form:input path="pickUpDate" type="date" name="data"/>
+                                Data <form:input path="pickUpDate" id="data" type="date" name="data"/>
                                 <form:errors path="pickUpDate"/>
                             </label>
                         </div>
@@ -152,7 +153,7 @@
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment" name="more_info" rows="5"></form:textarea>
+                                <form:textarea path="pickUpComment" id="more_info" name="more_info" rows="5"></form:textarea>
                                 <form:errors path="pickUpComment"/>
                             </label>
                         </div>
@@ -212,15 +213,13 @@
 
                 <div class="form-group form-group--buttons">
                     <button type="button" class="btn prev-step">Wstecz</button>
-                    <button type="submit" class="btn">Potwierdzam</button>
+                    <input type="submit" class="btn" value="Potwierdzam"/>
                 </div>
             </div>
         </form:form>
     </div>
 </section>
 
-<jsp:include page="../footer.jsp"/>
-
-<script src="/resources/charity/js/app.js"/>
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>
 </html>

@@ -9,12 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-<%--    <script type="text/javascript" src="/resources/charity/js/app.js"/>--%>
-    <script src="/resources/charity/js/app.js"></script>
+    <script type="text/javascript" src="/resources/charity/js/app.js"></script>
     <link rel="stylesheet" href="<c:url value="/resources/charity/css/style.css"/>"/>
 </head>
 <body>
-<jsp:include page="headerWithSlogan.jsp"/>
+<jsp:include page="/WEB-INF/views/headers/headerWithSlogan.jsp"/>
 
 <section class="stats">
     <div class="container container--85">
@@ -64,7 +63,6 @@
 
     <sec:authorize access="isAnonymous()">
         <a href="/register" class="btn btn--large">Załóż konto</a>
-        <a href="/login" class="btn btn--large">Zaloguj się</a>
     </sec:authorize>
 </section>
 
@@ -109,6 +107,6 @@
 
 </section>
 
-<jsp:include page="footer.jsp"/>
+<jsp:include page="/WEB-INF/views/footer.jsp"/>
 </body>
 </html>
