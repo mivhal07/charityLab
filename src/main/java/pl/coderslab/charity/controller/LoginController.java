@@ -30,7 +30,7 @@ public class LoginController {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
     }
-
+//pierwsza
     @GetMapping("/create/admin")
     @ResponseBody
     public String createUser() {

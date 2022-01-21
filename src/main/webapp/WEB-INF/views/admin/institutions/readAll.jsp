@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<a href="/admin/institution/add" class="btn btn--without-border">Dodaj fundacje</a><br>
+<a href="/admin/institutions/add" class="btn btn--without-border">Dodaj fundacje</a><br>
 
 <table>
     <tbody>
@@ -29,8 +29,8 @@
             <td>${institution.name}</td>
             <td>${institution.description}</td>
             <td>
-                <a href="/admin/institution/update" class="btn">Edytuj</a>
-                <a href="/admin/institution/delete" class="btn">Usuń</a>
+                <a href="/admin/institutions/update/${institution.id}" class="btn">Edytuj</a>
+                <a href="/admin/institutions/delete/${institution.id}" class="btn">Usuń</a>
             </td>
         </tr>
     </c:forEach>
