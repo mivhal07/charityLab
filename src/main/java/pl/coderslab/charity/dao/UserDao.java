@@ -17,7 +17,13 @@ public class UserDao {
 
     public List<User> getUsersName() {
         return entityManager
-                .createQuery("select u from User u order by ")
+                .createQuery("select u from User u")
                 .getResultList();
     }
+
+//    public List<User> getAdmins(){
+//        return entityManager
+//                .createQuery("select u from User u JOIN User_Roles ur on u.id = ur.user_id JOIN role r on ur.roles_id = r.id where r.id=1")
+//                .getResultList();
+//    }
 }

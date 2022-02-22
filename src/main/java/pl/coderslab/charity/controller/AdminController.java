@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.charity.dao.InstitutionDao;
+import pl.coderslab.charity.dao.UserDao;
 import pl.coderslab.charity.entity.Institution;
+import pl.coderslab.charity.repository.UserRepository;
 
 import javax.validation.Valid;
 
@@ -16,9 +18,13 @@ import javax.validation.Valid;
 @RequestMapping("/admin")
 public class AdminController {
     private final InstitutionDao institutionDao;
+    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public AdminController(InstitutionDao institutionDao) {
+    public AdminController(InstitutionDao institutionDao, UserDao userDao, UserRepository userRepository) {
         this.institutionDao = institutionDao;
+        this.userDao = userDao;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/")
@@ -54,8 +60,8 @@ public class AdminController {
     }
 
     @PostMapping("/institutions/update/{id}")
-    public String updateInstitutionResult(@Valid Institution institution, BindingResult result){
-        if (result.hasErrors()){
+    public String updateInstitutionResult(@Valid Institution institution, BindingResult result) {
+        if (result.hasErrors()) {
             return "admin/institutions/fail";
         }
         institutionDao.update(institution);
@@ -63,10 +69,14 @@ public class AdminController {
     }
 
     @GetMapping("/institutions/delete/{id}")
-    public String deleteInstitution(@PathVariable Long id){
+    public String deleteInstitution(@PathVariable Long id) {
         institutionDao.delete(institutionDao.findById(id));
         return "admin/institutions/success";
     }
 
-
+    @GetMapping("/admins")
+    public String allAdmins(Model model){
+        model.addAttribute("admins", userRepository.findUserByRolesId(1l));
+        return "admin/admins/readAll";
+    }
 }

@@ -12,5 +12,6 @@
 </head>
 <body>
 <a href="/admin/institutions" class="btn btn--without-border">Fundacje<br></a>
+<a href="/admin/admins" class="btn btn--without-border">Admini<br></a>
 </body>
 </html>
